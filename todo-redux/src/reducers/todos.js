@@ -1,3 +1,10 @@
+const removeLastTodo = (todos) => {
+  let newTodos = [...todos]
+  newTodos.pop()
+  return [...newTodos]
+}
+
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -16,7 +23,8 @@ const todos = (state = [], action) => {
           : todo
       )
     case 'REMOVE_LAST_TODO':
-      return state.filter(item => item !== state[state.length - 1])
+      //return state.filter(item => item !== state[state.length - 1])
+      return removeLastTodo(state)
     case 'REMOVE_TODO':
       return state.filter((item) => item.id !== action.todoId)
     default:
