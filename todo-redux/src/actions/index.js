@@ -10,3 +10,7 @@ export const removeTodo = todoId => ({
   type: 'REMOVE_TODO',
   todoId
 })
+
+export const removeLastTodo = () => ({
+  type: 'REMOVE_LAST_TODO'
+})

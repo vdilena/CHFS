@@ -15,6 +15,8 @@ const todos = (state = [], action) => {
           ? {...todo, completed: !todo.completed}
           : todo
       )
+    case 'REMOVE_LAST_TODO':
+      return state.filter(item => item !== state[state.length - 1])
     case 'REMOVE_TODO':
       return state.filter((item) => item.id !== action.todoId)
     default:
