@@ -1,0 +1,18 @@
+.header {
+    height: 55px;
+    width: 100%;
+    background-color: #fafafb;
+    border-bottom: 1px solid green;
+}
+
+.contenedor-rutas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.ruta {
+    padding-right: 20px;
+}
