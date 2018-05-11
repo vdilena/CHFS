@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo, sortTodos } from '../actions'
 
 class AddTodo extends Component {
   
@@ -25,12 +25,13 @@ class AddTodo extends Component {
             <button type="submit">
               Add Todo
             </button>
+            <button onClick={() => this.props.sortTodos()}>
+              Sort
+            </button>
           </form>
         </div>
       )
   }
-
-  
 }
 
 const mapStateToProps = (state) => ({
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addTodo: (text) => dispatch(addTodo(text))
+  addTodo: (text) => dispatch(addTodo(text)),
+  sortTodos: () => dispatch(sortTodos())
 })
 
 export default connect(

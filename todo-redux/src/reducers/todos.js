@@ -17,6 +17,12 @@ const removeTodoStartingA = (todos) => {
   return newTodos
 }
 
+const sortTodo = (todos) => {
+
+  let todosSorted = [...todos.sort((a,b) => a.text > b.text)]
+  return todosSorted
+}
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -44,6 +50,8 @@ const todos = (state = [], action) => {
       return state.filter((item) => item.id !== action.todoId)
     case 'EDIT_LAST_TODO':
       return editLastTodo(state, action.text)
+    case 'SORT_TODO':
+      return sortTodo(state)
     default:
       return state
   }

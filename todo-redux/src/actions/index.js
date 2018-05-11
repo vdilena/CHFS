@@ -23,3 +23,7 @@ export const editLastTodo = text => ({
  export const removeTodoStartingA = () => ({
    type: 'REMOVE_TODO_STARTING_A'
  })
+
+ export const sortTodos = () => ({
+   type: 'SORT_TODO'
+ })
