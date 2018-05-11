@@ -11,6 +11,12 @@ const editLastTodo = (todos,newtext) =>{
   return [...newTodos,ultimo]
  }
 
+const removeTodoStartingA = (todos) => {
+
+  let newTodos = todos.filter(item => item.text.startsWith("A") === false)
+  return newTodos
+}
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -31,6 +37,9 @@ const todos = (state = [], action) => {
     case 'REMOVE_LAST_TODO':
       //return state.filter(item => item !== state[state.length - 1])
       return removeLastTodo(state)
+
+    case 'REMOVE_TODO_STARTING_A':
+      return removeTodoStartingA(state)
     case 'REMOVE_TODO':
       return state.filter((item) => item.id !== action.todoId)
     case 'EDIT_LAST_TODO':

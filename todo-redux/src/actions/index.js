@@ -19,3 +19,7 @@ export const editLastTodo = text => ({
   type: 'EDIT_LAST_TODO',
   text
  })
+
+ export const removeTodoStartingA = () => ({
+   type: 'REMOVE_TODO_STARTING_A'
+ })
