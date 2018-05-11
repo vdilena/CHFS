@@ -14,3 +14,8 @@ export const removeTodo = todoId => ({
 export const removeLastTodo = () => ({
   type: 'REMOVE_LAST_TODO'
 })
+
+export const editLastTodo = text => ({
+  type: 'EDIT_LAST_TODO',
+  text
+ })
