@@ -52,6 +52,8 @@ const todos = (state = [], action) => {
       return editLastTodo(state, action.text)
     case 'SORT_TODO':
       return sortTodo(state)
+    case 'GET_TODOS':
+      return [...state, ...action.todos]
     default:
       return state
   }

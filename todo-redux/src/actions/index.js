@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let nextTodoId = 0
 
 export const addTodo = text => ({
@@ -27,3 +29,19 @@ export const editLastTodo = text => ({
  export const sortTodos = () => ({
    type: 'SORT_TODO'
  })
+
+ export const todoList = () => {
+
+  return (dispatch) => {
+
+    axios.get('http://localhost:4000/todos')
+    .then((response) => {
+      const {data} = response
+
+      dispatch({
+        type: 'GET_TODOS',
+        todos: data
+      })
+    })
+  }
+ }
