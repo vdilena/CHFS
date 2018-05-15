@@ -54,6 +54,8 @@ const todos = (state = [], action) => {
       return sortTodo(state)
     case 'GET_TODOS':
       return [...state, ...action.todos]
+    case 'GET_BY_ID':
+      return [...state, action.todo]
     default:
       return state
   }
