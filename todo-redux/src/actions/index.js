@@ -45,3 +45,19 @@ export const editLastTodo = text => ({
     })
   }
  }
+
+ export const todoFromList = (todoId) => {
+
+  return (dispatch) => {
+
+    axios.get(`http://localhost:4000/todos/${todoId}`)
+    .then((response) => {
+      const {data} = response
+
+      dispatch({
+        type: 'GET_BY_ID',
+        todo: data
+      })
+    })
+  }
+ }
