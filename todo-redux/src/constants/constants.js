@@ -1,1 +1,3 @@
 export const TODOS_STARTING_CHAR = 'TODOS_STARTING_CHAR';
+
+export const SUM_SUB_TODOS = 'SUM_SUB_TODOS';

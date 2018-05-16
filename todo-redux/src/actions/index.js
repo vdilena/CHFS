@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TODOS_STARTING_CHAR } from '../constants/constants'
+import { TODOS_STARTING_CHAR, SUM_SUB_TODOS } from '../constants/constants'
 
 let nextTodoId = 0
 
@@ -74,6 +74,22 @@ export const getTodosStartingA = (startingChar) => {
       dispatch({
         type: TODOS_STARTING_CHAR,
         startingChar,
+        todos: data
+      })
+    })
+  }
+ }
+
+ export const sumSubTodos = () => {
+
+  return (dispatch) => {
+
+    axios.get('http://localhost:4000/todos')
+    .then((response) => {
+      const {data} = response
+
+      dispatch({
+        type: SUM_SUB_TODOS,
         todos: data
       })
     })

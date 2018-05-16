@@ -1,7 +1,7 @@
 import React ,{ Component } from 'react'
 import Todo from './Todo'
 import { connect } from 'react-redux'
-import {todoList, todoFromList, getTodosStartingA} from '../actions'
+import {todoList, todoFromList, getTodosStartingA, sumSubTodos} from '../actions'
 
 class TodoList extends Component {
 
@@ -10,6 +10,7 @@ class TodoList extends Component {
     //this.props.getTodos()
     //this.props.todoFromList(2)
     this.props.todosStarting("A")
+    console.log(this.props.sumSubTodos())
   }
 
   render () {
@@ -35,7 +36,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getTodos: () => dispatch( todoList() ),
   todoFromList: (todoId) => dispatch( todoFromList(todoId) ),
-  todosStarting: (startingChar) => dispatch(getTodosStartingA(startingChar)  )
+  todosStarting: (startingChar) => dispatch(getTodosStartingA(startingChar)  ),
+  sumSubTodos: () => dispatch(sumSubTodos()) 
 })
 
 export default connect(

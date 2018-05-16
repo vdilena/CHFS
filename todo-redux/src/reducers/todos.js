@@ -1,4 +1,4 @@
-import { TODOS_STARTING_CHAR } from '../constants/constants'
+import { TODOS_STARTING_CHAR, SUM_SUB_TODOS } from '../constants/constants'
 
 const removeLastTodo = (todos) => {
   let newTodos = [...todos]
@@ -67,6 +67,8 @@ const todos = (state = [], action) => {
                 (item) => item.text.startsWith(action.startingChar)
               )
       ]
+    case SUM_SUB_TODOS:
+      return action.todos.reduce( (acumulador = 0, todo) => todo.cant_subtareas + acumulador )
     default:
       return state
   }
