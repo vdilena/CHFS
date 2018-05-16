@@ -1,3 +1,5 @@
+import { TODOS_STARTING_CHAR } from '../constants/constants'
+
 const removeLastTodo = (todos) => {
   let newTodos = [...todos]
   newTodos.pop()
@@ -56,6 +58,15 @@ const todos = (state = [], action) => {
       return [...state, ...action.todos]
     case 'GET_BY_ID':
       return [...state, action.todo]
+    case TODOS_STARTING_CHAR:
+      return [
+        ...state,
+        ...action.
+            todos.
+              filter(
+                (item) => item.text.startsWith(action.startingChar)
+              )
+      ]
     default:
       return state
   }

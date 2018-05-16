@@ -1,14 +1,15 @@
 import React ,{ Component } from 'react'
 import Todo from './Todo'
 import { connect } from 'react-redux'
-import {todoList, todoFromList} from '../actions'
+import {todoList, todoFromList, getTodosStartingA} from '../actions'
 
 class TodoList extends Component {
 
   componentDidMount() {
 
     //this.props.getTodos()
-    this.props.todoFromList(2)
+    //this.props.todoFromList(2)
+    this.props.todosStarting("A")
   }
 
   render () {
@@ -33,7 +34,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getTodos: () => dispatch( todoList() ),
-  todoFromList: (todoId) => dispatch( todoFromList(todoId) )
+  todoFromList: (todoId) => dispatch( todoFromList(todoId) ),
+  todosStarting: (startingChar) => dispatch(getTodosStartingA(startingChar)  )
 })
 
 export default connect(

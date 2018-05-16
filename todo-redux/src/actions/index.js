@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { TODOS_STARTING_CHAR } from '../constants/constants'
 
 let nextTodoId = 0
 
@@ -57,6 +58,23 @@ export const editLastTodo = text => ({
       dispatch({
         type: 'GET_BY_ID',
         todo: data
+      })
+    })
+  }
+ }
+
+export const getTodosStartingA = (startingChar) => {
+
+  return (dispatch) => {
+
+    axios.get('http://localhost:4000/todos')
+    .then((response) => {
+      const {data} = response
+
+      dispatch({
+        type: TODOS_STARTING_CHAR,
+        startingChar,
+        todos: data
       })
     })
   }
