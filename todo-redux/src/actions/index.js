@@ -79,19 +79,3 @@ export const getTodosStartingA = (startingChar) => {
     })
   }
  }
-
- export const sumSubTodos = () => {
-
-  return (dispatch) => {
-
-    axios.get('http://localhost:4000/todos')
-    .then((response) => {
-      const {data} = response
-
-      dispatch({
-        type: SUM_SUB_TODOS,
-        todos: data
-      })
-    })
-  }
- }

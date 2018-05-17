@@ -67,8 +67,6 @@ const todos = (state = [], action) => {
                 (item) => item.text.startsWith(action.startingChar)
               )
       ]
-    case SUM_SUB_TODOS:
-      return action.todos.reduce( (acumulador = 0, todo) => todo.cant_subtareas + acumulador )
     default:
       return state
   }
