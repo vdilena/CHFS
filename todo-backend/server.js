@@ -34,7 +34,13 @@ app.get("/cards", (req, res) => {
 
 app.get("/cards/:cardId", (req, res) => {
 
-    res.send("Pantalla Card " + req.params.cardId)
+    fs.readFile("db.json", (error, data) => {
+
+        let datosRecuperados = JSON.parse(data)
+        let cards = datosRecuperados.cards.filter(card => card.id == req.params.cardId)
+
+        res.send(cards)
+    })
 })
 
 app.get("/cardsQS", (req, res) => {
