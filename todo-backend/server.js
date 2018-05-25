@@ -60,7 +60,20 @@ app.get("/cardsQS", (req, res) => {
 
 app.post("/cards", (req, res) => {
 
-    res.send(`recibi: ${req.body.title}`)
+    fs.readFile("db.json", (error, data) => {
+
+        let id = req.body.id
+        let title = req.body.title
+        let description = req.body.description
+
+        let cards = JSON.parse(data).cards
+
+        let objeto = { cards: [...cards,{id: id, title: title, description: description} ] }
+
+        fs.writeFile("db.json", JSON.stringify(objeto))
+
+        res.send(id.toString())
+    })
 })
 
 app.put("/cards/:carId", (req, res) => {
