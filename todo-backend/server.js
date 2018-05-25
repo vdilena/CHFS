@@ -45,10 +45,17 @@ app.get("/cards/:cardId", (req, res) => {
 
 app.get("/cardsQS", (req, res) => {
 
-    let cardId = req.query.cardId
-    let title = req.query.title
+    
+    fs.readFile("db.json", (error, data) => {
 
-    res.send("Card id: " + cardId + ", title: " + title)
+        let title = req.query.title
+        let description = req.query.description
+
+        let cards = JSON.parse(data).cards.filter(card => (title ? card.title == title : true) && (description ? card.description == description : true))
+
+        res.send(cards)
+    })
+
 })
 
 app.post("/cards", (req, res) => {
